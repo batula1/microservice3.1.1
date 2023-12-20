@@ -1,0 +1,27 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: batul
+  Date: 06.12.2023
+  Time: 18:17
+  To change this template use File | Settings | File Templates.
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Info</title>
+</head>
+<body>
+<h1>User Information</h1>
+<form th:action="@{/saveUser}" th:object="${users}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    Name: <input type="text" th:field="*{name}" required="true"/>
+    <br/><br/>
+    Surname: <input type="text" th:field="*{lastname}" required="true"/>
+    <br/><br/>
+    Age: <input type="number" th:field="*{age}" required="true"/>
+    <br/>
+    <input type="submit" value="OK">
+</form>
+</body>
+</html>

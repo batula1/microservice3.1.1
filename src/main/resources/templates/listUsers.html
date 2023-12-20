@@ -1,0 +1,35 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: batul
+  Date: 03.12.2023
+  Time: 10:50
+  To change this template use File | Settings | File Templates.
+--><!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<h1>Users List</h1>
+<table>
+    <tr>
+        <th style="text-align: left;">Name</th>
+        <th>LastName</th>
+        <th>Age</th>
+        <th>Operation</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.name}" />
+        <td th:text="${user.lastname}" />
+        <td th:text="${user.age}" />
+        <td>
+            <a th:href="@{'/updateInfo?id=' + ${user.id}}">Update</a>
+            <a th:href="@{'/deleteUser?id=' + ${user.id}}">Delete</a>
+        </td>
+    </tr>
+</table>
+<br/>
+<a th:href="@{'/addUser'}">Add</a>
+</body>
+</html>
